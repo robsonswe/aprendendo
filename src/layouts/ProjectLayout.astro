@@ -1,12 +1,11 @@
 ---
 import Layout from "./Layout.astro";
+import PagNavigation from "@components/PagNavigation.astro";
 const { frontmatter } = Astro.props;
 ---
 
 <Layout title={frontmatter.title}>
-  <nav>
-    <div class="bredcrumbs"><a href="/disciplinas">Disciplinas</a> > <a href=`/disciplinas/${frontmatter.disciplina}` class="capitalize">{frontmatter.disciplina}</a> > {frontmatter.title}</div>
-  </nav>
+    <PagNavigation />
   <h1>{frontmatter.title}</h1>
   <div>
   </div>

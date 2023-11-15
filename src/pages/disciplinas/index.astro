@@ -1,19 +1,41 @@
 ---
+import PagNavigation from "@components/PagNavigation.astro";
 import Layout from "@layouts/Layout.astro";
 const allPosts = await Astro.glob("./**/*.{md,mdx}");
-const disciplinas = [...new Set(allPosts.map((post) => post.frontmatter.disciplina).flat())];
+const disciplinas = [
+  ...new Set(
+    allPosts
+      .map((post) => post.frontmatter.disciplina)
+      .flat()
+      .filter((disciplina) => disciplina !== undefined)
+  ),
+];
 const title = "Disciplinas";
-
 ---
 
 <Layout title={title}>
   <main class="min-w-[50vw]">
-      <h2>Todos as Disciplinas</h2>
-      <ul class="flex flex-col gap-6">
-        {disciplinas.map((disciplina) => (
-          <li class="capitalize"><a href={`/disciplinas/${disciplina}`}>{disciplina}</a></li>
-        ))}
-      </ul>
-    </section>
+    <PagNavigation />
+    <ul class="flex flex-col gap-6">
+      {
+        disciplinas.map((disciplina) => (
+        <a href={`/disciplinas/${disciplina}`}>
+          <li class="capitalize w-full p-2 customBg rounded text-2xl">
+            {disciplina}
+          </li>
+        </a>
+        ))
+      }
+    </ul>
   </main>
 </Layout>
+
+
+<style>
+  .customBg {
+      background-color: #1F283B;
+  }
+  .customBg:hover {
+    background-color: #5a6f9e;
+  }
+</style>

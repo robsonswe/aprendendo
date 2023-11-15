@@ -2,9 +2,7 @@
 import Layout from "@layouts/Layout.astro";
 import Post from "@components/Post.astro";
 const allPosts = await Astro.glob("../pages/disciplinas/**/*.{md,mdx}");
-const featuredPosts = allPosts.filter(
-  (post) => post.frontmatter.featured
-);
+const featuredPosts = allPosts.filter((post) => post.frontmatter.featured);
 ---
 
 <Layout>
@@ -19,7 +17,11 @@ const featuredPosts = allPosts.filter(
               title={post.frontmatter.title}
               description={post.frontmatter.description}
               slides={post.frontmatter.slides}
-              imageURL={post.frontmatter.imageURL ? post.frontmatter.imageURL : "/images/placeholder.svg"}
+              imageURL={
+                post.frontmatter.imageURL
+                  ? post.frontmatter.imageURL
+                  : "/images/placeholder.svg"
+              }
             />
           ))
         }

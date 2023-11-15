@@ -1,0 +1,5 @@
+@use './breadcrumbs.scss' with (
+  $bem-root: 'c-breadcrumbs',
+  $overflow-behavior: 'wrap',
+  $size-font: 1.1rem,
+);

@@ -1,18 +1,18 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Post from "@components/Post.astro";
+import PagNavigation from "@components/PagNavigation.astro";
 const allPosts = await Astro.glob("./*.{md,mdx}");
 const featuredPosts = allPosts.filter(
   (post) => post.frontmatter.featured
 );
 const title = "Perícia";
+
 ---
 
 <Layout title={title}>
   <main class="min-w-[50vw]">
-    <nav>
-      <div class="bredcrumbs"><a href="/disciplinas">Disciplinas</a> > Pericia</div>
-    </nav>
+      <PagNavigation/>
       <h2>Todos as Postagens</h2>
       <ul class="flex flex-col gap-6">
         {
