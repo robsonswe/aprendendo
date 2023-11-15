@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Cantarell&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 96%;
+}
+
+body {
+    margin-inline: auto;
+    font-family: 'Cantarell', sans-serif;
+    min-height: 100%;
+    background-color: #0E162A;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    justify-content: center;
+    color: #F2F5F6;
+    padding: 20px;
+    grid-gap: 30px;
+}
+
+a {
+    color: #F2F5F6;
+}
+
+
+.icons {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    max-width: 40px;
+}
+
+@media screen and (min-width: 636px) {
+    .nav-links {
+        position: static;
+        width: auto;
+        background: none;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .nav-links a {
+        padding: 15px 20px;
+    }
+}

@@ -1,0 +1,65 @@
+---
+interface Props {
+	title: string;
+    description: string;
+    imageURL?: string;
+    url?: string;
+    slides?: string;
+}
+
+const { title, description, imageURL, url, slides } = Astro.props;
+---
+<div class="projectDiv">
+    {imageURL?<div class="projectImage"><img src={imageURL}  /></div> : null}
+    <div class="projectInfo">
+        <h3 class="projectTitle">{title}</h3>
+        <p class="projectDescription">{description}</p>
+        <a href={slides? slides : url} target={slides? "_blank" : "_self"} class="projectLink">Ver detalhes</a>
+    </div>
+</div>
+
+<style>
+    .projectDiv {
+        background-color: #1F283B;
+        border-radius: .375rem;
+        padding: 0.75rem;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    }
+    .projectInfo {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .projectDescription {
+        color: #f1f1f1;
+        text-align: justify;
+    }
+
+    .projectImage > img {
+        max-width: 300px;
+        max-height: 300px;
+    }
+
+    .projectLink {
+        align-self: center;
+    }
+
+    @media screen and (min-width: 636px) {
+        .projectImage > img {
+        max-width: 200px;
+        max-height: 200px;
+        }
+
+        .projectDiv {
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        gap: 20px;
+    }
+    .projectLink {
+        align-self: flex-start;
+    }
+    }
+</style>

@@ -1,0 +1,14 @@
+---
+import Layout from "./Layout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+  <nav>
+    <div class="bredcrumbs"><a href="/disciplinas">Disciplinas</a> > <a href=`/disciplinas/${frontmatter.disciplina}`>{frontmatter.disciplina}</a> > {frontmatter.title}</div>
+  </nav>
+  <h1>{frontmatter.title}</h1>
+  <div>
+  </div>
+  <slot />
+</Layout>

@@ -1,0 +1,27 @@
+---
+import Layout from "@layouts/Layout.astro";
+const allPosts = await Astro.glob("./**/*.{md,mdx}");
+const disciplinas = [...new Set(allPosts.map((post) => post.frontmatter.disciplina).flat())];
+const title = "Disciplinas";
+
+---
+
+<Layout title={title}>
+  <main>
+      <h2>Todos as Disciplinas</h2>
+      <ul>
+        {disciplinas.map((disciplina) => (
+          <li class="tag"><a href={`/disciplinas/${disciplina}`}>{disciplina}</a></li>
+        ))}
+      </ul>
+    </section>
+  </main>
+</Layout>
+
+<style>
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  </style>

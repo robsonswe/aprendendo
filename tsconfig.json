@@ -1,0 +1,20 @@
+{
+  "extends": "astro/tsconfigs/base",
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "baseUrl": "./",
+		"moduleResolution": "bundler",
+		"paths": {
+			"@asset/*": ["src/asset/*"],
+			"@components/*": ["src/components/*"],
+			"@context/*": ["src/context/*"],
+			"@element/*": ["src/element/*"],
+			"@layouts/*": ["src/layouts/*"],
+			"@library/*": ["src/library/*"],
+			"@Page/*": ["src/pages/*"],
+			"@scripts/*": ["src/scripts/*"],
+			"@styles/*": ["src/styles/*"]
+		},
+		"types": ["astro/client", "astro/env"]
+  }
+}

@@ -1,0 +1,40 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Post from "@components/Post.astro";
+const allPosts = await Astro.glob("./*.{md,mdx}");
+const featuredPosts = allPosts.filter(
+  (post) => post.frontmatter.featured
+);
+const title = "Perícia";
+---
+
+<Layout title={title}>
+  <main>
+    <nav>
+      <div class="bredcrumbs"><a href="/disciplinas">Disciplinas</a> > Pericia</div>
+    </nav>
+      <h2>Todos as Postagens</h2>
+      <ul>
+        {
+          featuredPosts.map((post) => (
+            <Post
+              url={post.url}
+              title={post.frontmatter.title}
+              description={post.frontmatter.description}
+              slides={post.frontmatter.slides}
+              imageURL={post.frontmatter.imageURL}
+            />
+          ))
+        }
+      </ul>
+    </section>
+  </main>
+</Layout>
+
+<style>
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  </style>

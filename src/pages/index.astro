@@ -1,0 +1,65 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Post from "@components/Post.astro";
+const allPosts = await Astro.glob("../pages/disciplinas/**/*.{md,mdx}");
+const featuredPosts = allPosts.filter(
+  (post) => post.frontmatter.featured
+);
+---
+
+<Layout>
+  <main>
+    <section>
+      <h2>Postagens em destaque</h2>
+      <ul>
+        {
+          featuredPosts.map((post) => (
+            <Post
+              url={post.url}
+              title={post.frontmatter.title}
+              description={post.frontmatter.description}
+              slides={post.frontmatter.slides}
+              imageURL={post.frontmatter.imageURL ? post.frontmatter.imageURL : "./images/placeholder.svg"}
+            />
+          ))
+        }
+      </ul>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .contactContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    background-color: #1f283b;
+    border-radius: 0.275rem;
+    padding: 5px;
+    min-width: 60px;
+  }
+
+  .infosList {
+    display: flex;
+    gap: 20px;
+  }
+  .infosList a {
+    text-decoration: none;
+  }
+  .infoSection {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+</style>
