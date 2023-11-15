@@ -1,4 +1,5 @@
 ---
+import Layout from "@layouts/Layout.astro";
 import DisciplinaLayout from "@layouts/DisciplinaLayout.astro";
 const allPosts = await Astro.glob("./*.{md,mdx}");
 const featuredPosts = allPosts.filter(
@@ -7,5 +8,7 @@ const featuredPosts = allPosts.filter(
 const title = "Perícia";
 
 ---
+<Layout title={title}>
 
-<DisciplinaLayout posts={featuredPosts} title={title} />
+<DisciplinaLayout posts={featuredPosts} />
+</Layout>

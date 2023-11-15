@@ -1,5 +1,4 @@
 ---
-import Layout from "@layouts/Layout.astro";
 import Post from "@components/Post.astro";
 import PagNavigation from "@components/PagNavigation.astro";
 
@@ -10,9 +9,6 @@ const publishedPosts = posts.filter(
 );
  
 ---
-
-
-<Layout title={title}>
   <main class="min-w-[50vw]">
       <PagNavigation/>
       <h2 class="text-xl p-0 my-4 font-bold">Todos as Postagens</h2>
@@ -31,4 +27,3 @@ const publishedPosts = posts.filter(
       </ul>
     </section>
   </main>
-</Layout>>
