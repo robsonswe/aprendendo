@@ -1,0 +1,34 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Post from "@components/Post.astro";
+import PagNavigation from "@components/PagNavigation.astro";
+
+
+const { posts, title } = Astro.props;
+const publishedPosts = posts.filter(
+  (post) => post.frontmatter.published
+);
+ 
+---
+
+
+<Layout title={title}>
+  <main class="min-w-[50vw]">
+      <PagNavigation/>
+      <h2 class="text-xl p-0 my-4 font-bold">Todos as Postagens</h2>
+      <ul class="flex flex-col gap-6">
+        {
+          publishedPosts.map((post) => (
+            <Post
+              url={post.url}
+              title={post.frontmatter.title}
+              description={post.frontmatter.description}
+              slides={post.frontmatter.slides}
+              imageURL={post.frontmatter.imageURL ? post.frontmatter.imageURL : "/images/placeholder.svg"}
+            />
+          ))
+        }
+      </ul>
+    </section>
+  </main>
+</Layout>>

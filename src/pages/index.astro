@@ -8,7 +8,7 @@ const featuredPosts = allPosts.filter((post) => post.frontmatter.featured);
 <Layout>
   <main class="flex flex-col justify-around gap-5 min-w-[50vw]">
     <section>
-      <h2>Postagens em destaque</h2>
+      <h2 class="text-xl p-0 my-4 font-bold">Postagens em destaque</h2>
       <ul class="flex flex-row gap-6">
         {
           featuredPosts.map((post) => (

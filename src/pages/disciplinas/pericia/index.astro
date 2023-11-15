@@ -1,7 +1,5 @@
 ---
-import Layout from "@layouts/Layout.astro";
-import Post from "@components/Post.astro";
-import PagNavigation from "@components/PagNavigation.astro";
+import DisciplinaLayout from "@layouts/DisciplinaLayout.astro";
 const allPosts = await Astro.glob("./*.{md,mdx}");
 const featuredPosts = allPosts.filter(
   (post) => post.frontmatter.featured
@@ -10,23 +8,4 @@ const title = "Perícia";
 
 ---
 
-<Layout title={title}>
-  <main class="min-w-[50vw]">
-      <PagNavigation/>
-      <h2 class="text-xl p-0 my-4 font-bold">Todos as Postagens</h2>
-      <ul class="flex flex-col gap-6">
-        {
-          featuredPosts.map((post) => (
-            <Post
-              url={post.url}
-              title={post.frontmatter.title}
-              description={post.frontmatter.description}
-              slides={post.frontmatter.slides}
-              imageURL={post.frontmatter.imageURL ? post.frontmatter.imageURL : "/images/placeholder.svg"}
-            />
-          ))
-        }
-      </ul>
-    </section>
-  </main>
-</Layout>
+<DisciplinaLayout posts={featuredPosts} title={title} />
