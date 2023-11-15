@@ -1,16 +1,21 @@
 ---
 import PagNavigation from "@components/PagNavigation.astro";
 import Layout from "@layouts/Layout.astro";
-const allPosts = await Astro.glob("./**/*.{md,mdx}");
-const disciplinas = [
-  ...new Set(
-    allPosts
-      .map((post) => post.frontmatter.disciplina)
-      .flat()
-      .filter((disciplina) => disciplina !== undefined)
-  ),
-];
+import disciplinas from "./disciplinas.json"
+import { existsSync } from 'fs';
+import path from 'path';
+
+const __filename = new URL(import.meta.url).pathname;
+const __dirname = path.dirname(__filename);
+
+// Filtrar diretórios inexistentes
+const validDisciplinas = disciplinas.filter((disciplina) => {
+  const folderPath = path.join(__dirname, disciplina.folder);
+  return existsSync(folderPath); // Check if the folder exists
+});
+
 const title = "Disciplinas";
+
 ---
 
 <Layout title={title}>
@@ -18,10 +23,10 @@ const title = "Disciplinas";
     <PagNavigation />
     <ul class="flex flex-col gap-6">
       {
-        disciplinas.map((disciplina) => (
-        <a href={`/disciplinas/${disciplina}`}>
+        validDisciplinas.map((disciplina) => (
+        <a href={`/disciplinas/${disciplina.folder}`}>
           <li class="capitalize w-full p-2 customBg rounded text-2xl">
-            {disciplina}
+            {disciplina.title}
           </li>
         </a>
         ))
