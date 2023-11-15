@@ -1,15 +1,13 @@
 ---
 layout: "@layouts/ProjectLayout.astro"
-title: 'Pericias'
-description: 'Uma breve introdução do que são perícias'
+title: 'Perícias Contábeis: Uma Análise Detalhada por Categoria'
+description: 'As perícias contábeis são uma área altamente especializada da contabilidade que exige um entendimento profundo de diversos domínios. Vamos nos aprofundar em cada uma das principais categorias de perícias contábeis, explorando os elementos e contextos específicos de cada uma.'
 featured: true
 imageURL: "/images/placeholder.svg"
 disciplina: "pericia"
 ---
 
-**Perícias Contábeis: Uma Análise Detalhada por Categoria**
-
-As perícias contábeis são uma área altamente especializada da contabilidade que exige um entendimento profundo de diversos domínios. Vamos agora nos aprofundar em cada uma das principais categorias de perícias contábeis, explorando os elementos e contextos específicos de cada uma.
+As perícias contábeis são uma área altamente especializada da contabilidade que exige um entendimento profundo de diversos domínios. Vamos nos aprofundar em cada uma das principais categorias de perícias contábeis, explorando os elementos e contextos específicos de cada uma.
 
 # **Perícia Financeira**
 
