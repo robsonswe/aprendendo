@@ -3,7 +3,7 @@ layout: "@layouts/ProjectLayout.astro"
 title: 'Pericias'
 description: 'Uma breve introdução do que são perícias'
 featured: true
-imageURL: "./images/placeholder.svg"
+imageURL: "/images/placeholder.svg"
 disciplina: "pericia"
 ---
 
