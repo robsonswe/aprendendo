@@ -9,12 +9,12 @@ const title = "Perícia";
 ---
 
 <Layout title={title}>
-  <main>
+  <main class="min-w-[50vw]">
     <nav>
       <div class="bredcrumbs"><a href="/disciplinas">Disciplinas</a> > Pericia</div>
     </nav>
       <h2>Todos as Postagens</h2>
-      <ul>
+      <ul class="flex flex-col gap-6">
         {
           featuredPosts.map((post) => (
             <Post
@@ -30,11 +30,3 @@ const title = "Perícia";
     </section>
   </main>
 </Layout>
-
-<style>
-    ul {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-  </style>

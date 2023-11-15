@@ -8,10 +8,10 @@ const featuredPosts = allPosts.filter(
 ---
 
 <Layout>
-  <main>
+  <main class="flex flex-col gap-5 min-w-[50vw]">
     <section>
       <h2>Postagens em destaque</h2>
-      <ul>
+      <ul class="flex flex-row gap-6">
         {
           featuredPosts.map((post) => (
             <Post
@@ -27,39 +27,3 @@ const featuredPosts = allPosts.filter(
     </section>
   </main>
 </Layout>
-
-<style>
-  ul {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  main {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  .contactContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: fit-content;
-    background-color: #1f283b;
-    border-radius: 0.275rem;
-    padding: 5px;
-    min-width: 60px;
-  }
-
-  .infosList {
-    display: flex;
-    gap: 20px;
-  }
-  .infosList a {
-    text-decoration: none;
-  }
-  .infoSection {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-</style>

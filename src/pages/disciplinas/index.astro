@@ -7,21 +7,13 @@ const title = "Disciplinas";
 ---
 
 <Layout title={title}>
-  <main>
+  <main class="min-w-[50vw]">
       <h2>Todos as Disciplinas</h2>
-      <ul>
+      <ul class="flex flex-col gap-6">
         {disciplinas.map((disciplina) => (
-          <li class="tag"><a href={`/disciplinas/${disciplina}`}>{disciplina}</a></li>
+          <li class="capitalize"><a href={`/disciplinas/${disciplina}`}>{disciplina}</a></li>
         ))}
       </ul>
     </section>
   </main>
 </Layout>
-
-<style>
-    ul {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-  </style>

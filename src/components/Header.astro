@@ -2,24 +2,12 @@
 import Navigation from "./Navigation.astro";
 ---
 
-<header transition:persist>
-    <h1 id="aprendendo"><a href="/">Aprendendo</a></h1>
+<header transition:persist class="flex flex-row justify-between items-center">
+    <h1 id="aprendendo"><a href="/" class="text-cyan-500 text-2xl">Aprendendo</a></h1>
     <Navigation/>
 </header>
 
 <style>
-  header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  h1 a {
-    color: #19a8d4;
-	text-decoration: none;
-  font-size: 1.5rem;
-  }
-
   @media screen and (min-width: 636px) {
     body {
       margin: auto;
@@ -29,6 +17,5 @@ import Navigation from "./Navigation.astro";
   font-size: 2rem;
   }
 }
-
 
 </style>
